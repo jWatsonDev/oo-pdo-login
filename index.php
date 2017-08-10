@@ -1,11 +1,16 @@
 <?php 
 require_once 'core/init.php';
 
-$user = DB::getInstance()->get('users', array('username', '=', 'alex'));
+if (Session::exists('home')) {
+    echo '<p>' . Session::flash('home') . '</p>';
+}
 
+echo Session::get(Config::get('session/session_name'));
+
+/*
 if (!$user->count()) {
     echo "no user";
 } else {
-    echo "Ok";
+    echo $user->first()->username;
 }
-
+*/
