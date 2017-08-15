@@ -30,7 +30,7 @@ if (Input::exists()) {
             //Session::flash('success', 'You registered successfully.');
             //header('Location: index.php');
             $user = new User();
-            //echo $salt = Hash::salt(32);
+            $salt = Hash::salt(32);
 
             try {
                 $user->create(array(
@@ -40,6 +40,7 @@ if (Input::exists()) {
                     'name' => Input::get('name'),
                     'joined' => date('Y-m-d H:i:s'),
                     'group' => 1
+                    
                 ));
                 
                 Session::flash('home', 'Registration successful.');
