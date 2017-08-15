@@ -14,7 +14,7 @@ if (Input::exists()) {
       $login = $user->login(Input::get('username'), Input::get('password'));
       
       if ($login) {
-        echo 'success';
+        Redirect::to('index.php');
       } else {
         echo 'sorry, there was a problem loggin in';
       }
