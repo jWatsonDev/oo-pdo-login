@@ -11,7 +11,7 @@ $user = new User();
 
 if ($user->isLoggedIn()) {
 ?>
-    <p>Hello <a href="#"><?= escape($user->data()->username); ?></a>!</p>
+    <p>Hello <a href="profile.php?user=<?= escape($user->data()->username); ?>"><?= escape($user->data()->username); ?></a>!</p>
     <ul>
         <li><a href="logout.php">Log out</a></li>
         <li><a href="update.php">Update</a></li>
