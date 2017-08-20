@@ -9,7 +9,7 @@ if (Session::exists('home')) {
 
 $user = new User(); 
 
-if ($user->isLoggedIn()) :
+if ($user->isLoggedIn()) {
 ?>
     <p>Hello <a href="#"><?= escape($user->data()->username); ?></a>!</p>
     <ul>
@@ -18,6 +18,9 @@ if ($user->isLoggedIn()) :
         <li><a href="change_password.php">Change Password</a></li>
     </ul>
 <?php
-else :
+    if ($user->hasPermission('admin')) {
+        echo '<p>You are an admin.</p>';
+    }
+} else {
     echo "<a href='login.php'>login</a> or <a href='register.php'>register</a></p>";
-endif;
+}
